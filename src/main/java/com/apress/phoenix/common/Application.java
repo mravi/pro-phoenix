@@ -33,6 +33,7 @@ public class Application implements Closeable {
     public void close() {
         if(utility != null) {
             try {
+                this.connection.close();
                 utility.shutdownMiniCluster();
             } catch (Exception e) {
                 Throwables.propagate(e);
